@@ -3,14 +3,14 @@
 REPO_LIST = [
     # ১ নাম্বার বটের তথ্য
     {
-        "link": "https://github.com/username/my-chat-bot",  # আপনার বটের গিটহ্যাব লিংক
+        "link": "https://github.com/nahid270/Auto-Post-In-blogger-",  # আপনার বটের গিটহ্যাব লিংক
         "start_file": "main.py"  # ওই বটের কোন ফাইলটা রান করতে হয় (যেমন: main.py বা bot.py)
     },
     
     # ২ নাম্বার বটের তথ্য
     {
-        "link": "https://github.com/username/my-music-bot",
-        "start_file": "app.py"
+        "link": "https://github.com/Nahidbd270/Rename-bot",
+        "start_file": "bot.py"
     },
     
     # ৩ নাম্বার বটের তথ্য (এভাবে যত খুশি দিতে পারেন)
