@@ -1,4 +1,3 @@
-# run.py
 import os
 import subprocess
 import time
@@ -13,36 +12,37 @@ def deploy_bots():
         repo_link = bot["link"]
         start_file = bot["start_file"]
         
-        # ১. গিটহ্যাব থেকে ফোল্ডারের নাম বের করা
+        # ফোল্ডারের নাম বের করা
         folder_name = repo_link.split("/")[-1].replace(".git", "")
         
-        # ২. যদি ফোল্ডার না থাকে, তাহলে ক্লোন (Clone) করবে
+        # ১. ক্লোন করা (যদি না থাকে)
         if not os.path.exists(folder_name):
             print(f"[Downloading] {folder_name}...")
+            # প্রাইভেট রিপো এড়াতে এখানে পাবলিক লিংক ব্যবহার করবেন
             subprocess.run(["git", "clone", repo_link])
-        else:
-            print(f"[Found] {folder_name} already exists.")
-
-        # ৩. রিকোয়ারমেন্টস (Requirements) ইনস্টল করা
+        
+        # ২. রিকোয়ারমেন্টস ইনস্টল করা
         req_file = os.path.join(folder_name, "requirements.txt")
         if os.path.exists(req_file):
             print(f"[Installing Requirements] for {folder_name}...")
             subprocess.run(["pip", "install", "-r", req_file])
         
-        # ৪. বট রান করা (Start Bot)
-        run_cmd = f"python {folder_name}/{start_file}"
+        # ৩. বট রান করা (সঠিক ডিরেক্টরি বা cwd ব্যবহার করে)
         print(f"[Starting] {folder_name}...")
         
-        # subprocess.Popen ব্যবহার করা হচ্ছে যাতে সব একসাথে চলে
-        proc = subprocess.Popen(["python", f"{folder_name}/{start_file}"])
-        processes.append(proc)
-        print(f"✅ {folder_name} is running!")
+        try:
+            # গুরুত্ত্বপূর্ণ পরিবর্তন: cwd=folder_name দেওয়া হয়েছে
+            # এতে বট মনে করবে সে তার নিজের ফোল্ডারের ভেতরেই আছে
+            proc = subprocess.Popen(["python", start_file], cwd=folder_name)
+            processes.append(proc)
+            print(f"✅ {folder_name} is running!")
+        except Exception as e:
+            print(f"❌ Failed to start {folder_name}: {e}")
 
 if __name__ == "__main__":
     deploy_bots()
     print("--- All Bots Deployed Successfully ---")
     
-    # স্ক্রিপ্ট যাতে বন্ধ না হয়, তাই ইনফিনিটি লুপে রাখা হলো
     try:
         while True:
             time.sleep(10)
