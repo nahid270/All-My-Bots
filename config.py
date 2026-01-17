@@ -1,21 +1,23 @@
 # config.py
 
 REPO_LIST = [
-    # ১ নাম্বার বটের তথ্য
+    # ১ নাম্বার বট (Blogger Post Bot)
     {
-        "link": "https://github.com/nahid270/Auto-Post-In-blogger-",  # আপনার বটের গিটহ্যাব লিংক
-        "start_file": "main.py"  # ওই বটের কোন ফাইলটা রান করতে হয় (যেমন: main.py বা bot.py)
+        # লিংক এবং ফাইলের নাম ঠিক করে দেওয়া হলো
+        "link": "https://github.com/Nahidbd270/Auto-Post-In-blogger-", 
+        "start_file": "bot.py"  # আপনার স্ক্রিনশট অনুযায়ী এটা bot.py হবে
     },
     
-    # ২ নাম্বার বটের তথ্য
+    # ২ নাম্বার বট (Rename Bot)
     {
         "link": "https://github.com/Nahidbd270/Rename-bot",
         "start_file": "bot.py"
     },
     
-    # ৩ নাম্বার বটের তথ্য (এভাবে যত খুশি দিতে পারেন)
+    # ৩ নাম্বার বট (Filter Bot) - এটা যদি না লাগে, ডিলিট করে দিতে পারেন
+    # অথবা আপনার সঠিক লিংক বসান
     {
-        "link": "https://github.com/username/filter-bot",
+        "link": "", # username ঠিক করা হলো
         "start_file": "bot.py"
     }
 ]
