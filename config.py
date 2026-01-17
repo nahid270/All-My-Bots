@@ -3,7 +3,7 @@
 REPO_LIST = [
     # ১. Auto Post Bot (লিংকের শেষে / নেই)
     {
-        "link": "https://github.com/Nahidbd270/Auto-Post-In-blogger-", 
+        "link": "https://github.com/Nahidbd270/Auto-Post-In-blogger", 
         "start_file": "main.py"
     },
     
